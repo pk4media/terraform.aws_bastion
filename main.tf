@@ -29,9 +29,9 @@ resource "aws_security_group" "bastion" {
 }
 
 resource "aws_security_group" "access" {
-  name = "${var.name}-access"
-  vpc_id "${var.vpc_id}"
+  name        = "${var.name}-access"
   description = "Bastion passthrough access security settings"
+  vpc_id      = "${var.vpc_id}"
 
   tags {
     Name        = "${var.name}"

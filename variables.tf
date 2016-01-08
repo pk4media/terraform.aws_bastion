@@ -33,3 +33,6 @@ variable "instance_type" {
 variable "ec2_key_name" {
   description = "The EC2 key to use in creating the instances (must exist)"
 }
+variable "private_key" {
+  description = "The private bastion key"
+}
