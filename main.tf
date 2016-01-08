@@ -1,7 +1,7 @@
 resource "aws_security_group" "bastion" {
-  name = "${var.name}"
-  vpc_id = "${var.vpc_id}"
+  name        = "${var.name}"
   description = "Bastion security settings"
+  vpc_id      = "${var.vpc_id}"
 
   tags {
     Name        = "${var.name}"
@@ -44,6 +44,10 @@ resource "aws_security_group" "access" {
     from_port       = 22
     to_port         = 22
     security_groups = ["${aws_security_group.bastion.id}"]
+  }
+
+  lifecycle {
+    create_before_destroy = true
   }
 }
 
